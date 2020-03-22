@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DemoLibrary;
+
+
 namespace WinformMiniProject
 {
     public partial class PersonEntry : Form, ISaveAdress
@@ -34,6 +36,19 @@ namespace WinformMiniProject
         public void SaveAdress(AdressModel adressModel)
         {
             adresses.Add(adressModel);
+        }
+
+        private void btSave_Click(object sender, EventArgs e)
+        {
+            PersonModel personModel = new PersonModel
+            {
+                FirstName = tbFirstName.Text,
+                LastName = tbLastName.Text,
+                IsActive = cbIsActive.Checked,
+                Adresses = adresses.ToList()
+            };
+
+
         }
     }
 }
